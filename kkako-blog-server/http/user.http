@@ -1,0 +1,25 @@
+GET {{baseUrl}}/user/1
+Accept: application/json
+
+###
+POST {{baseUrl}}/user/register
+Content-Type: application/json
+
+{
+  "account": "lisi",
+  "password": "12345678"
+}
+
+
+###
+
+POST {{baseUrl}}/user/login
+Content-Type: application/json
+
+{
+  "account": "lisi",
+  "password": "12345678"
+}
+
+> {% client.global.set("auth_token", response.body.json.token); %}
+###
